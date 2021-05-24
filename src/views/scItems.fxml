@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="100.0" prefWidth="300.0" styleClass="shadow" stylesheets="@../values/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ScItemsController">
+   <children>
+      <ImageView fx:id="imgLogo" fitHeight="100.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="lbName" layoutX="112.0" layoutY="-6.0" prefHeight="40.0" prefWidth="97.0" text="蛋炒饭">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbPrice" layoutX="115.0" layoutY="43.0" prefHeight="31.0" prefWidth="71.0" text="12.0¥" />
+      <CheckBox fx:id="cbIsChoose" layoutX="252.0" layoutY="34.0" mnemonicParsing="false" />
+   </children>
+</AnchorPane>
