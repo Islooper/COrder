@@ -1,5 +1,9 @@
 package Controller;
 
+import javafx.beans.binding.ObjectBinding;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +16,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -62,6 +67,9 @@ public class MarketController implements Initializable {
     @FXML
     private Label time;
 
+    @FXML
+    private Label lbNum;
+
 
     @FXML
     private Button btnAddShoppingCar;
@@ -69,6 +77,10 @@ public class MarketController implements Initializable {
 
     @FXML
     private ImageView imgToShoppingCart;
+
+
+    @FXML
+    private AnchorPane apStage;
 
 
     // 当前
@@ -186,6 +198,7 @@ public class MarketController implements Initializable {
 
         preGood = goods;
 
+
     }
 
     @Override
@@ -238,6 +251,14 @@ public class MarketController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+//        ShoppingCart shoppingCart = ShoppingCart.INSTANCE;
+//        lbNum.textProperty().bind(new ObjectBinding<String>() {
+//            @Override
+//            protected String computeValue() {
+//                return String.valueOf(shoppingCart.getList().size());
+//            }
+//        });
     }
 
 
@@ -266,16 +287,21 @@ public class MarketController implements Initializable {
         shoppingCart.addItem(preGood);
 
         // ui图标给出提示
+        lbNum.setVisible(true);
+        lbNum.setText(String.valueOf(shoppingCart.getList().size()));
+
     }
 
 
     // 跳转购物车界面
     @FXML
     void toShoppingCart(MouseEvent event) {
+        Stage stage = (Stage) btnSearch.getScene().getWindow();
+        stage.close();
+
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("../views/shoppingCart.fxml"));
-            Stage stage = new Stage();
             Scene scene = new Scene(root);
             stage.setTitle("小柒 点餐");
             stage.setScene(scene);

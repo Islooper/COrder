@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,6 +14,5 @@
          </font>
       </Label>
       <Label fx:id="lbPrice" layoutX="115.0" layoutY="43.0" prefHeight="31.0" prefWidth="71.0" text="12.0¥" />
-      <CheckBox fx:id="cbIsChoose" layoutX="252.0" layoutY="34.0" mnemonicParsing="false" />
    </children>
 </AnchorPane>
